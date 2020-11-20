@@ -4,19 +4,21 @@ import axios from "axios";
 
 const useAxios = (item, url) => {
   // get responses (card list) from local storage 
-  const [response, setResponse] = useLocalStorage(item)
+  const [responses, setResponse] = useLocalStorage(item);
 
 //   const addItem = async () => {
 //     const responseAPI = await axios.get(url);
 //     setResponse(...response, responseAPI.data);
 //   };
 //   return [response, addItem ];
-// }
 
-  const addItem = async (formatter = (data) => data) => {
+
+  const addItem = async (formatter = data => data)  => {
     const responseAPI = await axios.get(url);
-    setResponse((data) => [...data, formatter(responseAPI.data)]);
+    setResponse(data => [...data, formatter(responseAPI.data)]);
   };
+
+  return [responses, addItem];
 }
 
 const useLocalStorage = (item, initialValue = []) => {
