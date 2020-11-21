@@ -3,7 +3,7 @@ import uuid from "uuid";
 import axios from "axios";
 import PlayingCard from "./PlayingCard";
 import "./PlayingCardList.css";
-import useAxios from "./hooks/useAxios"
+import useAxios from "./hooks/useAxios";
 
 /* Renders a list of playing cards.
  * Can also add a new card at random. */
@@ -20,7 +20,7 @@ function CardTable() {
         <button onClick={() => addCard()}>Add a playing card!</button>
       </div>
       <div className="PlayingCardList-card-area">
-        {cards.map(card => (
+        {cards.map((card) => (
           <PlayingCard key={card.id} front={card.cards[0].image} />
         ))}
       </div>

@@ -4,7 +4,7 @@ import axios from "axios";
 import PokemonSelect from "./PokemonSelect";
 import PokemonCard from "./PokemonCard";
 import "./PokeDex.css";
-import useAxios from "./hooks/useAxios"
+import useAxios from "./hooks/useAxios";
 
 /* Renders a list of pokemon cards.
  * Can also add a new card at random,
@@ -23,7 +23,7 @@ function PokeDex() {
       </div>
       <div className="PokeDex-card-area">
         {pokemon.map((card) => (
-          <PokemonCard key={card.id} {...card} /> 
+          <PokemonCard key={card.id} {...card} />
         ))}
       </div>
     </div>
