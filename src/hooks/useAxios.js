@@ -3,6 +3,7 @@ import axios from "axios";
 import uuid from "uuid";
 
 
+
 const useAxios = (item, url) => {
   // get responses (card list) from local storage 
   const [responses, setResponses] = useLocalStorage(item);
@@ -39,9 +40,5 @@ const useLocalStorage = (item, initialValue = []) => {
   return [value, setValue];
 }
 
-
-// export default useLocalStorage;
-
-// export {useAxios, useLocalStorage}
 
 export default useAxios; 
