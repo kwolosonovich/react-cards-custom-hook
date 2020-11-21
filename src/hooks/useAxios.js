@@ -1,24 +1,25 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
+import uuid from "uuid";
 
 
 const useAxios = (item, url) => {
   // get responses (card list) from local storage 
-  const [responses, setResponse] = useLocalStorage(item);
+  const [responses, setResponses] = useLocalStorage(item);
 
 //   const addItem = async () => {
 //     const responseAPI = await axios.get(url);
 //     setResponse(...response, responseAPI.data);
 //   };
 //   return [response, addItem ];
+    const id = uuid() 
 
-
-  const addItem = async (formatter = data => data)  => {
-    const responseAPI = await axios.get(url);
-    setResponse(data => [...data, formatter(responseAPI.data)]);
+  const addResponseData = async (formatter = data => data, restOfUrl = "", id) => {
+    const response = await axios.get(`${url}${restOfUrl}`);
+    setResponses((data) => [...data, formatter(response.data)]);
   };
 
-  return [responses, addItem];
+  return [responses, addResponseData];
 }
 
 const useLocalStorage = (item, initialValue = []) => {
