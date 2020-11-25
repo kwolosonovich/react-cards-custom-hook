@@ -19,7 +19,7 @@ function PokeDex() {
     <div className="PokeDex">
       <div className="PokeDex-buttons">
         <h3>Please select your pokemon:</h3>
-        <PokemonSelect add={() => setPokemon()} />
+        <PokemonSelect add={() => setPokemon(pokemon.name, pokemon.url)} />
       </div>
       <div className="PokeDex-card-area">
         {pokemon.map((card) => (
